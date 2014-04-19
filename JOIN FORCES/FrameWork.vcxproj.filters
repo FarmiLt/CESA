@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{5f26a4a5-c813-4c51-8dfc-e9bf00b2ee3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DirectX">
+      <UniqueIdentifier>{cd6c789a-3215-47ce-9497-acc19861e112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Window">
+      <UniqueIdentifier>{697635e2-1454-49d7-97d2-7286fbe1e695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Image">
+      <UniqueIdentifier>{108c0cd9-8f88-42c6-ab8f-de22f9805781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Effect">
+      <UniqueIdentifier>{6294f62d-0b95-4461-a722-9ea1db7a5791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PreCompiler">
+      <UniqueIdentifier>{2c078786-ad9c-4957-95fb-11e0b074ede1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Macro">
+      <UniqueIdentifier>{d83c25f3-9ade-4ab9-992e-deaf302115e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Singleton">
+      <UniqueIdentifier>{f06044ef-0896-4687-912c-09e0f1a2f10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{633f9a07-98c0-4db1-9056-207e86e3588f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Enumeration">
+      <UniqueIdentifier>{789590d3-9d80-4164-a6da-2a718fc64923}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Exception">
+      <UniqueIdentifier>{13fce9c6-424e-45f7-b2fa-78fa1168a474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\XACT">
+      <UniqueIdentifier>{c1a81542-eef7-48ce-acea-c32ff79c4c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\XACT\XACT-File">
+      <UniqueIdentifier>{3ba21126-5509-4d82-8af7-db9d2003064a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\3D">
+      <UniqueIdentifier>{48b5e375-e09d-4459-804f-d798e9f5f5c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\3D\Camera">
+      <UniqueIdentifier>{132fe172-b1c8-4ee2-9ca3-a243ef7231e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\3D\Model">
+      <UniqueIdentifier>{fa60fc0f-b549-4034-8f9d-1952d2a1d06b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Effect\Object">
+      <UniqueIdentifier>{c5af7c95-9ae1-4006-b117-85d6051c5600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\3D\Model\File">
+      <UniqueIdentifier>{337c4396-0c87-4bda-a941-6994c4196010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\FPS">
+      <UniqueIdentifier>{1dbec5d9-44c1-4f07-858d-ca40fa94ec45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character">
+      <UniqueIdentifier>{62b40504-fa36-43c3-8fd9-754638a33f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\FSM">
+      <UniqueIdentifier>{87f8c0ee-6372-4f3a-b092-8871ffd81caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\FSM\State">
+      <UniqueIdentifier>{8c6e234f-2a42-4165-84df-adf58f0996bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\FSM\Message">
+      <UniqueIdentifier>{af2db3f7-d0b3-4356-bada-92db2ad5fbb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\GameEntity">
+      <UniqueIdentifier>{6b6db0d6-64cc-4749-9d88-9fe792375b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\GameEntity\BaseEntity">
+      <UniqueIdentifier>{fbc3b14b-ee0b-4eab-97a7-45bcea488588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\GameEntity\GameEntity_State">
+      <UniqueIdentifier>{5a2be83e-b01c-4e00-a8eb-5d64a045477d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input">
+      <UniqueIdentifier>{229ad998-d74c-45c5-938e-bbcd2c8e5212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\3D\Camera\State">
+      <UniqueIdentifier>{e6b45377-f49f-4a75-8942-e3f3e754bf9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input\KeyBoard">
+      <UniqueIdentifier>{797ab5d5-d0cd-44cc-965f-18bc561df5b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input\Xbox360Controller">
+      <UniqueIdentifier>{b091daaa-0dd0-4128-8ec1-f91598af7c46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\Collision">
+      <UniqueIdentifier>{21682311-2dd6-442c-8d77-430924ffabc6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sourses\stdafx.cpp">
+      <Filter>ソース ファイル\PreCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\SystemManager.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\DirectX.cpp">
+      <Filter>ソース ファイル\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Window.cpp">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Procedure.cpp">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\ImageManager.cpp">
+      <Filter>ソース ファイル\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\AudioManager.cpp">
+      <Filter>ソース ファイル\XACT</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\SceneManager.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\BaseScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Logo.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Title.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Play.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\SceneChanger.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\ModelManager.cpp">
+      <Filter>ソース ファイル\3D\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Camera.cpp">
+      <Filter>ソース ファイル\3D\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\EffectManager.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\BaseEffect.cpp">
+      <Filter>ソース ファイル\Effect\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\FpsTimer.cpp">
+      <Filter>ソース ファイル\FPS</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Object.cpp">
+      <Filter>ソース ファイル\Effect\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\BaseEntity.cpp">
+      <Filter>ソース ファイル\Character\GameEntity\BaseEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\MessageDispatcher.cpp">
+      <Filter>ソース ファイル\Character\FSM\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\EntityManager.cpp">
+      <Filter>ソース ファイル\Character\GameEntity\BaseEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Game3DEntity.cpp">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Entity_Cube.cpp">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\CameraState.cpp">
+      <Filter>ソース ファイル\3D\Camera\State</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\KeyManager.cpp">
+      <Filter>ソース ファイル\Input\KeyBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\GameEntityState.cpp">
+      <Filter>ソース ファイル\Character\GameEntity\GameEntity_State</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\Entity_Sphere.cpp">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\EntityFactory.cpp">
+      <Filter>ソース ファイル\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="sourses\CollisionManager.cpp">
+      <Filter>ソース ファイル\Character\Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sourses\stdafx.h">
+      <Filter>ソース ファイル\PreCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\SystemManager.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\DirectX.h">
+      <Filter>ソース ファイル\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Macro.h">
+      <Filter>ソース ファイル\Macro</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Window.h">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Singleton.h">
+      <Filter>ソース ファイル\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Procedure.h">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\ImageManager.h">
+      <Filter>ソース ファイル\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\EffectManager.h">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Enum_Scene.h">
+      <Filter>ソース ファイル\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Enum_Image.h">
+      <Filter>ソース ファイル\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\BaseException.h">
+      <Filter>ソース ファイル\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\AudioManager.h">
+      <Filter>ソース ファイル\XACT</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\SceneManager.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\SceneChanger.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\BaseScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Logo.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Title.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Play.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Camera.h">
+      <Filter>ソース ファイル\3D\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\ModelManager.h">
+      <Filter>ソース ファイル\3D\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Enum_Model.h">
+      <Filter>ソース ファイル\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\BaseEffect.h">
+      <Filter>ソース ファイル\Effect\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\FpsTimer.h">
+      <Filter>ソース ファイル\FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Object.h">
+      <Filter>ソース ファイル\Effect\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\BaseState.h">
+      <Filter>ソース ファイル\Character\FSM\State</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\StateMachine.h">
+      <Filter>ソース ファイル\Character\FSM\State</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\MessageDispatcher.h">
+      <Filter>ソース ファイル\Character\FSM\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Structure_Message.h">
+      <Filter>ソース ファイル\Character\FSM\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\BaseEntity.h">
+      <Filter>ソース ファイル\Character\GameEntity\BaseEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\EntityManager.h">
+      <Filter>ソース ファイル\Character\GameEntity\BaseEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Entity_Cube.h">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Game3DEntity.h">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\GameEntityState.h">
+      <Filter>ソース ファイル\Character\GameEntity\GameEntity_State</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\CameraState.h">
+      <Filter>ソース ファイル\3D\Camera\State</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\InputManager.h">
+      <Filter>ソース ファイル\Input\Xbox360Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\KeyManager.h">
+      <Filter>ソース ファイル\Input\KeyBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\CollisionManager.h">
+      <Filter>ソース ファイル\Character\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Entity_Sphere.h">
+      <Filter>ソース ファイル\Character\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\EntityFactory.h">
+      <Filter>ソース ファイル\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Enum_Entity.h">
+      <Filter>ソース ファイル\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="sourses\Enum_Message.h">
+      <Filter>ソース ファイル\Enumeration</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="interface\bgm.xgs">
+      <Filter>ソース ファイル\XACT\XACT-File</Filter>
+    </None>
+    <None Include="interface\BGM_Title.xsb">
+      <Filter>ソース ファイル\XACT\XACT-File</Filter>
+    </None>
+    <None Include="interface\BGM_Title.xwb">
+      <Filter>ソース ファイル\XACT\XACT-File</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="interface\model\sample.FBX">
+      <Filter>ソース ファイル\3D\Model\File</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="interface\model\floor.FBX">
+      <Filter>ソース ファイル\3D\Model\File</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="interface\model\sphere.FBX">
+      <Filter>ソース ファイル\3D\Model\File</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="interface\model\peach.FBX">
+      <Filter>ソース ファイル\3D\Model\File</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+</Project>

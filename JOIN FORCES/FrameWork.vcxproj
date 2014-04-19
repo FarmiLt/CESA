@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F37F92D3-53A8-4143-B379-BE4C23020201}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FrameWork</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\MeshContentTask.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property\GameDebug.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property\GameRelease.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\DirectXTK\Bin\Desktop_2013\Win32\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="sourses\AudioManager.h" />
+    <ClInclude Include="sourses\BaseEffect.h" />
+    <ClInclude Include="sourses\BaseEntity.h" />
+    <ClInclude Include="sourses\BaseException.h" />
+    <ClInclude Include="sourses\BaseScene.h" />
+    <ClInclude Include="sourses\BaseState.h" />
+    <ClInclude Include="sourses\Camera.h" />
+    <ClInclude Include="sourses\CameraState.h" />
+    <ClInclude Include="sourses\CollisionManager.h" />
+    <ClInclude Include="sourses\DirectX.h" />
+    <ClInclude Include="sourses\EffectManager.h" />
+    <ClInclude Include="sourses\EntityFactory.h" />
+    <ClInclude Include="sourses\EntityManager.h" />
+    <ClInclude Include="sourses\Entity_Cube.h" />
+    <ClInclude Include="sourses\Entity_Sphere.h" />
+    <ClInclude Include="sourses\Enum_Entity.h" />
+    <ClInclude Include="sourses\Enum_Image.h" />
+    <ClInclude Include="sourses\Enum_Message.h" />
+    <ClInclude Include="sourses\Enum_Model.h" />
+    <ClInclude Include="sourses\Enum_Scene.h" />
+    <ClInclude Include="sourses\FpsTimer.h" />
+    <ClInclude Include="sourses\Game3DEntity.h" />
+    <ClInclude Include="sourses\GameEntityState.h" />
+    <ClInclude Include="sourses\ImageManager.h" />
+    <ClInclude Include="sourses\InputManager.h" />
+    <ClInclude Include="sourses\KeyManager.h" />
+    <ClInclude Include="sourses\Logo.h" />
+    <ClInclude Include="sourses\Macro.h" />
+    <ClInclude Include="sourses\MessageDispatcher.h" />
+    <ClInclude Include="sourses\ModelManager.h" />
+    <ClInclude Include="sourses\Object.h" />
+    <ClInclude Include="sourses\Play.h" />
+    <ClInclude Include="sourses\Procedure.h" />
+    <ClInclude Include="sourses\SceneChanger.h" />
+    <ClInclude Include="sourses\SceneManager.h" />
+    <ClInclude Include="sourses\Singleton.h" />
+    <ClInclude Include="sourses\StateMachine.h" />
+    <ClInclude Include="sourses\stdafx.h" />
+    <ClInclude Include="sourses\Structure_Message.h" />
+    <ClInclude Include="sourses\SystemManager.h" />
+    <ClInclude Include="sourses\Title.h" />
+    <ClInclude Include="sourses\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sourses\AudioManager.cpp" />
+    <ClCompile Include="sourses\BaseEffect.cpp" />
+    <ClCompile Include="sourses\BaseEntity.cpp" />
+    <ClCompile Include="sourses\BaseScene.cpp" />
+    <ClCompile Include="sourses\Camera.cpp" />
+    <ClCompile Include="sourses\CameraState.cpp" />
+    <ClCompile Include="sourses\CollisionManager.cpp" />
+    <ClCompile Include="sourses\DirectX.cpp" />
+    <ClCompile Include="sourses\EffectManager.cpp" />
+    <ClCompile Include="sourses\EntityFactory.cpp" />
+    <ClCompile Include="sourses\EntityManager.cpp" />
+    <ClCompile Include="sourses\Entity_Cube.cpp" />
+    <ClCompile Include="sourses\Entity_Sphere.cpp" />
+    <ClCompile Include="sourses\FpsTimer.cpp" />
+    <ClCompile Include="sourses\Game3DEntity.cpp" />
+    <ClCompile Include="sourses\GameEntityState.cpp" />
+    <ClCompile Include="sourses\ImageManager.cpp" />
+    <ClCompile Include="sourses\KeyManager.cpp" />
+    <ClCompile Include="sourses\Logo.cpp" />
+    <ClCompile Include="sourses\Main.cpp" />
+    <ClCompile Include="sourses\MessageDispatcher.cpp" />
+    <ClCompile Include="sourses\ModelManager.cpp" />
+    <ClCompile Include="sourses\Object.cpp" />
+    <ClCompile Include="sourses\Play.cpp" />
+    <ClCompile Include="sourses\Procedure.cpp" />
+    <ClCompile Include="sourses\SceneChanger.cpp" />
+    <ClCompile Include="sourses\SceneManager.cpp" />
+    <ClCompile Include="sourses\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sourses\SystemManager.cpp" />
+    <ClCompile Include="sourses\Title.cpp" />
+    <ClCompile Include="sourses\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="interface\model\peach.FBX">
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">interface/model/%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
+    <MeshContentTask Include="interface\model\sphere.FBX">
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">interface/model/%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
+    <None Include="interface\bgm.xgs" />
+    <None Include="interface\BGM_Title.xsb" />
+    <None Include="interface\BGM_Title.xwb" />
+    <MeshContentTask Include="interface\model\floor.FBX" />
+    <MeshContentTask Include="interface\model\sample.FBX">
+      <FileType>Document</FileType>
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">interface/model/%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\MeshContentTask.targets" />
+  </ImportGroup>
+</Project>
