@@ -93,10 +93,12 @@ bool C_Game3DEntity::Update(){
 *************************************************************************/
 void C_Game3DEntity::Render(){
 #ifdef _DEBUG
-	std::cout << "EntityID : " << GetID() << std::endl
-		<< "POSITION_X : " << m_position.x << std::endl
-		<< "POSITION_Y : " << m_position.y << std::endl
-		<< "POSITION_Z : " << m_position.z << std::endl;
+	// À•W‚ð•\Ž¦‚·‚é
+
+	//std::cout << "EntityID : " << GetID() << std::endl
+	//	<< "POSITION_X : " << m_position.x << std::endl
+	//	<< "POSITION_Y : " << m_position.y << std::endl
+	//	<< "POSITION_Z : " << m_position.z << std::endl;
 #endif
 }
 

@@ -2,17 +2,21 @@
 //
 //	詳細		：カメラクラスメソッド
 //	作成者		：岸　将史
-//	最終更新日	：2014/04/18
+//	最終更新日	：2014/04/21
 //
 //////////////////////////////////////////////////////
 #include "Camera.h"
 #include "CameraState.h"
 
 
+#pragma region	静的メンバ変数
+const float C_BaseCamera::TURN_ANGLE = 1.0f;	// カメラの回転角度
+#pragma endregion
+
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/14
+最終更新日	：2014/04/21
 用途		：メンバ変数の初期化
 第１引数	：－
 返却値		：－
@@ -21,8 +25,15 @@
 C_BaseCamera::C_BaseCamera()
 : m_cameraType(true)				// TODO: カメラの状態を変えるならここ
 , m_pOwner(nullptr)
-, m_distance(DirectX::SimpleMath::Vector3(0.0f, 30.0f, 50.0f)){
-	m_eyePosition	= m_distance;
+, m_ownerBefPosition(DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f))
+, m_distance(100.0f)
+, m_angleAxisX(45.0f)
+, m_angleAxisY(90.0f)
+{
+	m_eyePosition =
+		DirectX::SimpleMath::Vector3(m_distance * cosf(DirectX::XMConvertToRadians(m_angleAxisY)),
+									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisX)),
+									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisY)));
 	m_targetPosition= DirectX::SimpleMath::Vector3::Vector3(0.0f, 0.0f, 0.0f);
 	m_upVector		= DirectX::SimpleMath::Vector3::Vector3(0.0f, 1.0f, 0.0f);
 
@@ -69,6 +80,18 @@ C_BaseCamera::~C_BaseCamera(){
 *************************************************************************/
 void C_BaseCamera::Update(){
 	m_pStateMachine->Update();
+
+	// ビュー行列と射影行列を作り直す
+	CreateViewMatrix();
+	CreateProjectionMatrix();
+
+#ifdef _DEBUG
+	// TODO: カメラの角度を表示する
+
+	std::cout << "CAMERA XZ : " << m_angleAxisY << std::endl;
+	std::cout << "CAMERA Y : " << m_angleAxisX << std::endl;
+#endif
+
 }
 
 
@@ -129,7 +152,7 @@ void C_BaseCamera::ChangeCameraType(){
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/14
+最終更新日	：2014/04/21
 用途		：カメラの追従対象を設定する
 第１引数	：－
 返却値		：－
@@ -137,6 +160,9 @@ void C_BaseCamera::ChangeCameraType(){
 *************************************************************************/
 void C_BaseCamera::SetOwner(C_Game3DEntity* pOwner){
 	m_pOwner = pOwner;
+
+	// 追従対象の現在の座標を取得しておく
+	m_ownerBefPosition = m_pOwner->GetPosition();
 }
 
 
@@ -145,7 +171,7 @@ void C_BaseCamera::SetOwner(C_Game3DEntity* pOwner){
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/14
+最終更新日	：2014/04/19
 用途		：カメラ位置の指定
 第１引数	：－
 返却値		：－
@@ -155,58 +181,62 @@ void C_BaseCamera::SetEyePosition(DirectX::SimpleMath::Vector3 position){
 	m_eyePosition = position;
 
 	// ビュー行列を作り直す
-	CreateViewMatrix();
+	//CreateViewMatrix();
 }
 
 
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/14
-用途		：カメラを回転させる
-第１引数	：カメラを回転させる軸
+最終更新日	：2014/04/19
+用途		：カメラをY軸に対して回転させる
+第１引数	：回す方向(時計回り→true, 反時計回り→false)
 第２引数	：回転角度(度数法)
 返却値		：－
 
 *************************************************************************/
-void C_BaseCamera::TurnCamera(eTURNCAMERA axis, float angle){
-	// カメラを原点に移動させる
+void C_BaseCamera::TurnCamera_AxisY(bool plus){
+	if ( plus ) m_angleAxisY += TURN_ANGLE;
+	else		m_angleAxisY -= TURN_ANGLE;
 
-	// カメラを回転させる
-	switch (axis){
-	case eTURNCAMERA::X :
-		break;
-
-	case eTURNCAMERA::Y :
-		break;
-
-	case eTURNCAMERA::Z :
-		break;
+	// ３６０度回転したら０度に戻す
+	if (m_angleAxisY <= -360.0f || m_angleAxisY >= 360.0f){
+		m_angleAxisY = 0.0f;
 	}
 
-	// カメラを元の位置に戻す
-
-
-	// ビュー行列を作り直す
-	CreateViewMatrix();
+	// カメラ位置を再設定する
+	m_eyePosition = 
+		DirectX::SimpleMath::Vector3(m_distance * cosf(DirectX::XMConvertToRadians(m_angleAxisY)),
+									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisX)),
+									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisY)));
 }
 
 
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/18
+最終更新日	：2014/04/21
 用途		：カメラのターゲットを操作対象に合わせる
 第１引数	：－
 返却値		：－
 
 *************************************************************************/
 void C_BaseCamera::TargetFollowing(){
-	// ターゲットの座標をプレイヤーにする
-	m_targetPosition = m_pOwner->GetPosition();
+	// 現在の追従対象の座標を保持する
+	DirectX::SimpleMath::Vector3 target = m_pOwner->GetPosition();
+	// １フレーム前と現在の追従対象の座標差を保持する
+	DirectX::SimpleMath::Vector3 difPos;
+	difPos = target - m_ownerBefPosition;
 
-	// プレイヤーに対して動く
-	m_eyePosition = m_pOwner->GetPosition() + m_distance;
+	// ターゲットの座標をプレイヤーにする
+	m_targetPosition = target;
+
+	// カメラの位置を対象が移動した分だけ移動する
+	m_eyePosition = m_eyePosition + difPos;
+
+	// 現在の座標をクラス内で保管する
+	m_ownerBefPosition = target;
+	
 }
 
 #pragma endregion

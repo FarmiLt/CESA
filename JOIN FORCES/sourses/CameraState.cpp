@@ -6,6 +6,7 @@
 //
 //////////////////////////////////////////////////////
 #include "CameraState.h"
+#include "KeyManager.h"
 
 
 #pragma region 追従カメラ状態
@@ -34,9 +35,16 @@ void C_Camera_Following::Enter(C_BaseCamera* pOwner){
 
 *************************************************************************/
 void C_Camera_Following::Execute(C_BaseCamera* pOwner){
+	// キー処理で回転するようにする
+	if (C_KeyManager::GetInstance()->GetPressingCount('Z') >= 1){
+		pOwner->TurnCamera_AxisY(false);
+	}
+	if (C_KeyManager::GetInstance()->GetPressingCount('X') >= 1){
+		pOwner->TurnCamera_AxisY(true);
+	}
+
 	// ターゲット追従処理を呼び出す
 	pOwner->TargetFollowing();
-
 
 	// ビュー行列の作成
 	pOwner->CreateViewMatrix();

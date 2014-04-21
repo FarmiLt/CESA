@@ -30,9 +30,9 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPInst, LPSTR lpCmd, int nCmd
 	::_CrtSetDbgFlag(_CRTDBG_LEAK_CHECK_DF | _CRTDBG_ALLOC_MEM_DF);
 
 	// コンソール画面の表示
-	//::AllocConsole();
-	//freopen("CONIN$", "r", stdin);
-	//freopen("CONOUT$", "w", stdout);
+	::AllocConsole();
+	freopen("CONIN$", "r", stdin);
+	freopen("CONOUT$", "w", stdout);
 
 	//std::cout << "------------ DEBUG MODE ------------" << std::endl;
 	//std::cout << "調べたいデータは [#ifdef _DEBUG] 内にcoutで出すといい" << std::endl;
@@ -53,7 +53,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPInst, LPSTR lpCmd, int nCmd
 
 #ifdef _DEBUG
 	// コンソール画面の削除
-	//::FreeConsole();
+	::FreeConsole();
 #endif
 
 	return 0;
