@@ -1,6 +1,7 @@
-﻿2014/04/21 13:01:16 にビルドを開始しました。
+﻿2014/04/24 18:16:05 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\s132058\Desktop\CESA企画\JOIN FORCES\FrameWork.vcxproj" (Build ターゲット)。
      1>_MeshContentTask:
+         interface\model\cube.FBX
          interface\model\peach.FBX
          interface\model\sphere.FBX
          interface\model\floor.FBX
@@ -45,4 +46,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.12
+経過時間 00:00:01.24

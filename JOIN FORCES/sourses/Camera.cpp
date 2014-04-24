@@ -2,7 +2,7 @@
 //
 //	詳細		：カメラクラスメソッド
 //	作成者		：岸　将史
-//	最終更新日	：2014/04/21
+//	最終更新日	：2014/04/22
 //
 //////////////////////////////////////////////////////
 #include "Camera.h"
@@ -10,8 +10,9 @@
 
 
 #pragma region	静的メンバ変数
-const float C_BaseCamera::TURN_ANGLE = 1.0f;	// カメラの回転角度
+const float C_BaseCamera::TURN_ANGLE = 0.2f;	// カメラの回転角度
 #pragma endregion
+
 
 /*************************************************************************
 
@@ -91,20 +92,42 @@ void C_BaseCamera::Update(){
 	std::cout << "CAMERA XZ : " << m_angleAxisY << std::endl;
 	std::cout << "CAMERA Y : " << m_angleAxisX << std::endl;
 #endif
-
 }
 
 
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/14
+最終更新日	：2014/04/21
+用途		：対象を中心に回るようにカメラの座標を調整する
+第１引数	：－
+返却値		：－
+
+*************************************************************************/
+void C_BaseCamera::AdjustCameraPosition(){
+	// カメラ位置を再設定する
+	m_eyePosition =
+		DirectX::SimpleMath::Vector3(m_pOwner->GetPosition().x + m_distance * cosf(DirectX::XMConvertToRadians(m_angleAxisY)),
+									 m_pOwner->GetPosition().y + m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisX)),
+									 m_pOwner->GetPosition().z + m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisY)));
+
+}
+
+
+
+/*************************************************************************
+
+作成者		：岸　将史
+最終更新日	：2014/04/21
 用途		：ビュー行列を作成する
 第１引数	：－
 返却値		：－
 
 *************************************************************************/
 void C_BaseCamera::CreateViewMatrix(){
+	// カメラの位置を調整する
+	if ( m_pOwner )AdjustCameraPosition();
+
 	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(m_eyePosition, m_targetPosition, m_upVector);
 }
 
@@ -188,7 +211,7 @@ void C_BaseCamera::SetEyePosition(DirectX::SimpleMath::Vector3 position){
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/19
+最終更新日	：2014/04/21
 用途		：カメラをY軸に対して回転させる
 第１引数	：回す方向(時計回り→true, 反時計回り→false)
 第２引数	：回転角度(度数法)
@@ -203,14 +226,29 @@ void C_BaseCamera::TurnCamera_AxisY(bool plus){
 	if (m_angleAxisY <= -360.0f || m_angleAxisY >= 360.0f){
 		m_angleAxisY = 0.0f;
 	}
-
-	// カメラ位置を再設定する
-	m_eyePosition = 
-		DirectX::SimpleMath::Vector3(m_distance * cosf(DirectX::XMConvertToRadians(m_angleAxisY)),
-									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisX)),
-									 m_distance * sin(DirectX::XMConvertToRadians(m_angleAxisY)));
 }
 
+
+/*************************************************************************
+
+作成者		：岸　将史
+最終更新日	：2014/04/22
+用途		：カメラをX軸に対して回転させる
+第１引数	：回す方向(時計回り→true, 反時計回り→false)
+第２引数	：回転角度(度数法)
+返却値		：－
+
+*************************************************************************/
+void C_BaseCamera::TurnCamera_AxisX(bool plus){
+	if (plus){
+		// ８０度を超えないようにする
+		if ( m_angleAxisX <= 80.0f ) m_angleAxisX += TURN_ANGLE;
+	}
+	else{
+		// １０度を下回らないようにする
+		if ( m_angleAxisX >= 10.0f ) m_angleAxisX -= TURN_ANGLE;
+	}
+}
 
 /*************************************************************************
 
@@ -271,5 +309,18 @@ DirectX::XMMATRIX C_BaseCamera::GetProjectionMatrix() const{
 	return m_projection;
 }
 
+
+/*************************************************************************
+
+作成者		：岸　将史
+最終更新日	：2014/04/21
+用途		：カメラの向いている方向に見合った操作をさせるために角度を取得する
+第１引数	：－
+返却値		：Y軸に対する角度
+
+*************************************************************************/
+float C_BaseCamera::GetCameraAngleAxisY() const{
+	return m_angleAxisY;
+}
 
 #pragma endregion

@@ -162,6 +162,9 @@
     <ClCompile Include="sourses\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="interface\model\cube.FBX">
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">interface/model/%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
     <MeshContentTask Include="interface\model\peach.FBX">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">interface/model/%(Filename).cmo</ContentOutput>
     </MeshContentTask>

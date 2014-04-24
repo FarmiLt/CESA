@@ -42,6 +42,12 @@ void C_Camera_Following::Execute(C_BaseCamera* pOwner){
 	if (C_KeyManager::GetInstance()->GetPressingCount('X') >= 1){
 		pOwner->TurnCamera_AxisY(true);
 	}
+	if (C_KeyManager::GetInstance()->GetPressingCount('A') >= 1){
+		pOwner->TurnCamera_AxisX(false);
+	}
+	if (C_KeyManager::GetInstance()->GetPressingCount('S') >= 1){
+		pOwner->TurnCamera_AxisX(true);
+	}
 
 	// ターゲット追従処理を呼び出す
 	pOwner->TargetFollowing();

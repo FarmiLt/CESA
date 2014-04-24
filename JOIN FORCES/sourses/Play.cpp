@@ -52,10 +52,10 @@ C_ScenePlay::~C_ScenePlay(){
 
 *************************************************************************/
 bool C_ScenePlay::Initialize(){
-	// オブジェクトデータの登録
+	// エンティティの生成
 	C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(10.0f, 10.0f, 0.0f));
-	C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(-50.0f, 10.0f, 30.0f));
-
+	C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(-50.0f, 10.0f, 30.0f), 2.0f);
+	C_EntityFactory::Create(eENTITY::ENTITY_CUBE, DirectX::SimpleMath::Vector3(100.0f, 10.0f, 50.0f));
 	//m_pEntity = new C_Entity_Sphere(DirectX::SimpleMath::Vector3(0.0f, 10.0f, 0.0f) );
 
 	return true;

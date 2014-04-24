@@ -2,7 +2,7 @@
 //
 //	詳細		：ゲームで利用する3D実体クラスメソッド
 //	作成者		：岸　将史
-//	最終更新日	：2014/04/17
+//	最終更新日	：2014/04/22
 //
 //////////////////////////////////////////////////////
 #include "Game3DEntity.h"
@@ -13,23 +13,27 @@
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/17
+最終更新日	：2014/04/22
 用途		：メンバ変数の初期化
-第１引数	：－
+第１引数	：エンティティID
+第２引数	：表示座標(default : (0, 0, 0) )
+第３引数	：エンティティの大きさ(default : 1.0f)
 返却値		：－
 
 *************************************************************************/
-C_Game3DEntity::C_Game3DEntity(int id, DirectX::SimpleMath::Vector3 position)
+C_Game3DEntity::C_Game3DEntity(int id, DirectX::SimpleMath::Vector3 position, float scale)
 : C_BaseEntity(id)
 , m_radius(0.0f)
 , m_position(position)
+, m_scale(scale)
 , m_deadFlag(false)
 , m_crashing(false){
 
 	// ワールド行列を作成
 	m_world = DirectX::XMMatrixIdentity();
+	m_world *= DirectX::SimpleMath::Matrix::CreateScale(m_scale);
 	m_world *= DirectX::SimpleMath::Matrix::CreateTranslation(m_position);
-
+	
 
 	// 状態管理クラスを作成
 	m_pStateMachine = new C_StateMachine<C_Game3DEntity>(this);
@@ -61,25 +65,13 @@ C_Game3DEntity::~C_Game3DEntity(){
 }
 
 
-/*************************************************************************
-
-作成者		：岸　将史
-最終更新日	：2014/04/18
-用途		：ワールド座標の変換を行う
-第１引数	：－
-返却値		：正常終了→true, 異常検知→false
-
-*************************************************************************/
 bool C_Game3DEntity::Update(){
-	// 行列の初期化
 	m_world = DirectX::XMMatrixIdentity();
-
-	// 表示座標に合わせる
+	m_world *= DirectX::SimpleMath::Matrix::CreateScale(m_scale);
 	m_world *= DirectX::SimpleMath::Matrix::CreateTranslation(m_position);
 
 	return true;
 }
-
 
 
 /*************************************************************************
@@ -159,7 +151,7 @@ void C_Game3DEntity::ChangeControl(){
 作成者		：岸　将史
 最終更新日	：2014/04/17
 用途		：衝突フラグを切り換える
-第１引数	：－
+第１引数	：衝突しているかどうか
 返却値		：－
 
 *************************************************************************/

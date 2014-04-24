@@ -2,7 +2,7 @@
 //
 //	詳細		：ゲームで利用する3D実体クラス
 //	作成者		：岸　将史
-//	最終更新日	：2014/04/16
+//	最終更新日	：2014/04/22
 //
 //////////////////////////////////////////////////////
 #pragma once
@@ -13,7 +13,7 @@
 
 class C_Game3DEntity : public C_BaseEntity{
 public:
-	C_Game3DEntity(int id, DirectX::SimpleMath::Vector3 position);	// コンストラクタ
+	C_Game3DEntity(int id, DirectX::SimpleMath::Vector3 position, float scale);	// コンストラクタ
 	~C_Game3DEntity();												// デストラクタ
 
 	virtual bool Update();			// 更新処理
@@ -42,6 +42,7 @@ protected:
 	// メンバ変数
 	DirectX::SimpleMath::Matrix		m_world;			// ワールド行列
 	C_StateMachine<C_Game3DEntity>* m_pStateMachine;	// 状態管理クラス
+	DirectX::SimpleMath::Vector3	m_position;			// 表示座標
 	float							m_radius;			// 半径
 	eENTITY							m_entityType;		// タイプ
 
@@ -50,6 +51,5 @@ private:
 	bool							m_deadFlag;			// 死亡フラグ(default : false)
 	bool							m_controlling;		// 操作中フラグ(default: false)
 	bool							m_crashing;			// 衝突中フラグ(衝突している限りフラグは立ちっぱなしになる)
-	DirectX::SimpleMath::Vector3	m_position;			// 表示座標
-
+	float							m_scale;			// モデルの大きさ(default : 1.0f)
 };

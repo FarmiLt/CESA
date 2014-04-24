@@ -21,18 +21,18 @@
 ï‘ãpíl		ÅFÅ|
 
 *************************************************************************/
-void C_EntityFactory::Create(eENTITY objectType, DirectX::SimpleMath::Vector3 position){
+void C_EntityFactory::Create(eENTITY objectType, DirectX::SimpleMath::Vector3 position, float scale){
 	C_Game3DEntity* entity;
 
 	switch (objectType){
 		// óßï˚ëÃ
 	case eENTITY::ENTITY_CUBE :
-		entity = new C_Entity_Cube(position);
+		entity = new C_Entity_Cube(position, scale);
 		break;
 
 		// ãÖëÃ
 	case eENTITY::ENTITY_SPHERE :
-		entity = new C_Entity_Sphere(position);
+		entity = new C_Entity_Sphere(position, scale);
 		break;
 
 		// TODO: ê}å`Çí«â¡Ç∑ÇÈÇ»ÇÁÇ±Ç±Ç…

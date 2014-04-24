@@ -24,17 +24,20 @@ public:
 	void TargetFollowing();				// ターゲット座標の調整
 	void CreateViewMatrix();			// ビュー行列の作成
 	void CreateProjectionMatrix();		// 射影行列の作成
-	void TurnCamera_AxisY(bool plus);	// カメラの回転
+	void TurnCamera_AxisY(bool plus);	// Y軸に対するカメラの回転
+	void TurnCamera_AxisX(bool plus);	// X軸に対するカメラの回転
 
 	// getアクセサ
 	DirectX::XMMATRIX GetViewMatrix() const;		// ビュー行列の取得
 	DirectX::XMMATRIX GetProjectionMatrix() const;	// 射影行列の取得
+	float			  GetCameraAngleAxisY() const;	// Y軸に対する角度を取得
 
 private:
 	// メソッド
 	friend C_Singleton<C_BaseCamera>;		// フレンドに登録
 	C_BaseCamera();							// コンストラクタ
 	~C_BaseCamera();						// デストラクタ
+	void AdjustCameraPosition();			// カメラ位置の調整
 	
 	/*↓↓ 以下メンバ変数 ↓↓*/
 	static const float				TURN_ANGLE;			// カメラが１フレームで回転する角度

@@ -15,5 +15,7 @@ class C_EntityFactory{
 public:
 	// メソッド
 		// オブジェクト生成処理
-	static void Create(eENTITY object, DirectX::SimpleMath::Vector3 position = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f));
+	static void Create( eENTITY object,
+						DirectX::SimpleMath::Vector3 position = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f),
+						float scale = 1.0f);
 };

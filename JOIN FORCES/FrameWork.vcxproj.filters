@@ -354,5 +354,8 @@
     <MeshContentTask Include="interface\model\peach.FBX">
       <Filter>ソース ファイル\3D\Model\File</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="interface\model\cube.FBX">
+      <Filter>ソース ファイル\3D\Model\File</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

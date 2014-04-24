@@ -6,6 +6,7 @@
 //
 ///////////////////////////////////////////////
 #include "Procedure.h"
+#include "Window.h"
 
 
 /*************************************************************************
@@ -63,7 +64,7 @@ LRESULT CALLBACK C_WindowProc::CallProcedure( HWND hWnd, UINT uMsg, WPARAM wPara
 /*************************************************************************
 
 作成者		：岸　将史
-最終更新日	：2014/04/17
+最終更新日	：2014/04/21
 用途		：ウィンドウプロシージャ
 第１引数	：－
 返却値		：
@@ -75,6 +76,14 @@ LRESULT C_WindowProc::MainProcedure( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 	case WM_DESTROY:
 		PostQuitMessage( 0 );
 		return 0;
+
+	case WM_KEYDOWN:
+		if (wParam == VK_ESCAPE){
+			if (MessageBox(NULL, TEXT("終了しますか？"), TEXT("終了確認"), MB_YESNO) == IDYES){
+				SendMessage(C_Window::GetInstance()->GetWindowHandle(), WM_DESTROY, 0, 0);
+				return 0;
+			}
+		}
 
 	default:
 		return DefWindowProc( hWnd, uMsg, wParam, lParam );

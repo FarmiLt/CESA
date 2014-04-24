@@ -17,7 +17,7 @@ const LPCTSTR C_ModelManager::m_lpCommonModels[] = {
 	
 	TEXT("interface/model/sample.cmo"),
 	TEXT("interface/model/floor.cmo"),
-	//TEXT("interface/model/block.cmo"),
+	TEXT("interface/model/cube.cmo"),
 	TEXT("interface/model/peach.cmo"),
 
 };
