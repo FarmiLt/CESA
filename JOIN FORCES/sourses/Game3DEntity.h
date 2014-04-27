@@ -45,11 +45,11 @@ protected:
 	DirectX::SimpleMath::Vector3	m_position;			// 表示座標
 	float							m_radius;			// 半径
 	eENTITY							m_entityType;		// タイプ
+	float							m_scale;			// モデルの大きさ(default : 1.0f)
 
 private:
 	// メンバ変数
 	bool							m_deadFlag;			// 死亡フラグ(default : false)
 	bool							m_controlling;		// 操作中フラグ(default: false)
 	bool							m_crashing;			// 衝突中フラグ(衝突している限りフラグは立ちっぱなしになる)
-	float							m_scale;			// モデルの大きさ(default : 1.0f)
 };

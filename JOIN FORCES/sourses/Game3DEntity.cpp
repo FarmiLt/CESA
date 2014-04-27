@@ -65,9 +65,22 @@ C_Game3DEntity::~C_Game3DEntity(){
 }
 
 
+/*************************************************************************
+
+作成者		：岸　将史
+最終更新日	：2014/04/25
+用途		：ワールド行列の調整
+第１引数	：－
+返却値		：－
+
+*************************************************************************/
 bool C_Game3DEntity::Update(){
 	m_world = DirectX::XMMatrixIdentity();
 	m_world *= DirectX::SimpleMath::Matrix::CreateScale(m_scale);
+
+	// 状態に沿った処理を行う
+	m_pStateMachine->Update();
+
 	m_world *= DirectX::SimpleMath::Matrix::CreateTranslation(m_position);
 
 	return true;
@@ -87,10 +100,10 @@ void C_Game3DEntity::Render(){
 #ifdef _DEBUG
 	// 座標を表示する
 
-	//std::cout << "EntityID : " << GetID() << std::endl
-	//	<< "POSITION_X : " << m_position.x << std::endl
-	//	<< "POSITION_Y : " << m_position.y << std::endl
-	//	<< "POSITION_Z : " << m_position.z << std::endl;
+	std::cout << "EntityID : " << GetID() << std::endl
+		<< "POSITION_X : " << m_position.x << std::endl
+		<< "POSITION_Y : " << m_position.y << std::endl
+		<< "POSITION_Z : " << m_position.z << std::endl;
 #endif
 }
 

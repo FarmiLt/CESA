@@ -53,8 +53,8 @@ C_ScenePlay::~C_ScenePlay(){
 *************************************************************************/
 bool C_ScenePlay::Initialize(){
 	// エンティティの生成
-	C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(10.0f, 10.0f, 0.0f));
-	C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(-50.0f, 10.0f, 30.0f), 2.0f);
+	//C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(10.0f, 10.0f, 0.0f));
+	//C_EntityFactory::Create(eENTITY::ENTITY_SPHERE, DirectX::SimpleMath::Vector3(-50.0f, 10.0f, 30.0f), 2.0f);
 	C_EntityFactory::Create(eENTITY::ENTITY_CUBE, DirectX::SimpleMath::Vector3(100.0f, 10.0f, 50.0f));
 	//m_pEntity = new C_Entity_Sphere(DirectX::SimpleMath::Vector3(0.0f, 10.0f, 0.0f) );
 
@@ -89,7 +89,7 @@ bool C_ScenePlay::Update(){
 
 *************************************************************************/
 void C_ScenePlay::Draw(){
-	DirectX::XMMATRIX f_world = DirectX::XMMatrixIdentity();
+	DirectX::SimpleMath::Matrix f_world = DirectX::XMMatrixIdentity();
 
 	C_ModelManager::GetInstance()->GetCommonModel(COMMONMODEL_FLOOR)
 		->Draw(C_DirectX::GetInstance()->GetDeviceContext(),

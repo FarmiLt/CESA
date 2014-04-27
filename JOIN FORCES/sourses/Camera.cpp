@@ -27,7 +27,7 @@ C_BaseCamera::C_BaseCamera()
 : m_cameraType(true)				// TODO: カメラの状態を変えるならここ
 , m_pOwner(nullptr)
 , m_ownerBefPosition(DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f))
-, m_distance(100.0f)
+, m_distance(200.0f)
 , m_angleAxisX(45.0f)
 , m_angleAxisY(90.0f)
 {
@@ -89,8 +89,8 @@ void C_BaseCamera::Update(){
 #ifdef _DEBUG
 	// TODO: カメラの角度を表示する
 
-	std::cout << "CAMERA XZ : " << m_angleAxisY << std::endl;
-	std::cout << "CAMERA Y : " << m_angleAxisX << std::endl;
+	//std::cout << "CAMERA XZ : " << m_angleAxisY << std::endl;
+	//std::cout << "CAMERA Y : " << m_angleAxisX << std::endl;
 #endif
 }
 
@@ -291,7 +291,7 @@ void C_BaseCamera::TargetFollowing(){
 返却値		：ビュー行列
 
 *************************************************************************/
-DirectX::XMMATRIX C_BaseCamera::GetViewMatrix() const{
+DirectX::SimpleMath::Matrix C_BaseCamera::GetViewMatrix() const{
 	return m_view;
 }
 
@@ -305,7 +305,7 @@ DirectX::XMMATRIX C_BaseCamera::GetViewMatrix() const{
 返却値		：射影行列
 
 *************************************************************************/
-DirectX::XMMATRIX C_BaseCamera::GetProjectionMatrix() const{
+DirectX::SimpleMath::Matrix C_BaseCamera::GetProjectionMatrix() const{
 	return m_projection;
 }
 

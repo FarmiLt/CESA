@@ -63,7 +63,6 @@ C_Entity_Sphere::~C_Entity_Sphere(){
 *************************************************************************/
 bool C_Entity_Sphere::Update(){
 	C_Game3DEntity::Update();
-	m_pStateMachine->Update();
 	
 	return true;
 }
